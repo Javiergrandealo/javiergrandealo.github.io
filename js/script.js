@@ -106,7 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        <a href="${project.demoLink}" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
                         <a href="${project.codeLink}" class="project-link"><i class="fab fa-github"></i> Código</a>
                     </div>
                 </div>
