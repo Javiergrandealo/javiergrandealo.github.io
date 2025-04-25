@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 1,
             title: 'Undertale Save Converter for PC/Switch/Vita',
             description: 'Una herramienta para convertir partidas guardadas de Undertale entre PC, Switch y PSVita .',
-            image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.playstation.com%2Fes-es%2Fgames%2Fundertale%2F&psig=AOvVaw14zfiaNlObjPYmsCamj1mN&ust=1745673703572000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiWr7mj84wDFQAAAAAdAAAAABAE ?height=200&width=300',
+            image: 'Docs/UT.jpg ?height=200&width=300',
             category: 'game',
             tags: ['Python'],
             codeLink: 'https://github.com/Javiergrandealo/undertale-save-converter'
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 2,
             title: 'Extraordinaria TP',
             description: 'Un juego de rol en terminal, hecho en Java como proyecto de primero de carrera.',
-            image: 'https://github.com/laracabrera/proyecto-tp-2324-extr/blob/main/doc/_e0bb06e0-c99d-4eb9-91a1-b0f2dade0193.jpg?height=200&width=300',
+            image: 'Docs/TP.jpg ?height=200&width=300',
             category: 'game',
             tags: ['Java'],
             codeLink: 'https://github.com/Javiergrandealo/ExtraordinariaTP'
