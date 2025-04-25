@@ -58,86 +58,84 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectsGrid = document.getElementById('projects-grid');
     
-    document.addEventListener('DOMContentLoaded', function() {
-        const projectsGrid = document.getElementById('projects-grid');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-    
-        // Datos de proyectos
-        const projects = [
-            {
-                id: 1,
-                title: 'Undertale Save Converter for PC/Switch/Vita',
-                description: 'Una herramienta para convertir partidas guardadas de Undertale entre PC, Switch y PSVita.',
-                image: 'Docs/UT.jpg', // Ruta corregida
-                category: 'game',
-                tags: ['Python'],
-                codeLink: 'https://github.com/Javiergrandealo/undertale-save-converter'
-            },
-            {
-                id: 2,
-                title: 'Extraordinaria TP',
-                description: 'Un juego de rol en terminal, hecho en Java como proyecto de primero de carrera.',
-                image: 'Docs/TP.jpg', // Ruta corregida
-                category: 'game',
-                tags: ['Java'],
-                codeLink: 'https://github.com/Javiergrandealo/ExtraordinariaTP'
-            }
-        ];
-        // Función para cargar proyectos
-        function loadProjects(category = 'all') {
-            // Limpiar el grid de proyectos
-            projectsGrid.innerHTML = '';
-            
-            // Filtrar proyectos según la categoría seleccionada
-            const filteredProjects = category === 'all' 
-                ? projects 
-                : projects.filter(project => project.category === category);
-            
-            // Crear y añadir las tarjetas de proyectos
-            filteredProjects.forEach(project => {
-                const projectCard = document.createElement('div');
-                projectCard.className = 'project-card';
-                
-                projectCard.innerHTML = `
-                    <div class="project-img">
-                        <img src="${project.image}" alt="${project.title}">
-                    </div>
-                    <div class="project-info">
-                        <h3>${project.title}</h3>
-                        <p>${project.description}</p>
-                        <div class="project-tags">
-                            ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
-                        </div>
-                        <div class="project-links">
-                            <a href="${project.codeLink}" class="project-link"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                `;
-                
-                projectsGrid.appendChild(projectCard);
-            });
+    // Datos de proyectos
+    const projects = [
+        {
+            id: 1,
+            title: 'Undertale Save Converter for PC/Switch/Vita',
+            description: 'Una herramienta para convertir partidas guardadas de Undertale entre PC, Switch y PSVita .',
+            image: 'Docs/UT.jpg ?height=200&width=300',
+            category: 'game',
+            tags: ['Python'],
+            codeLink: 'https://github.com/Javiergrandealo/undertale-save-converter'
+        },
+        {
+            id: 2,
+            title: 'Extraordinaria TP',
+            description: 'Un juego de rol en terminal, hecho en Java como proyecto de primero de carrera.',
+            image: 'Docs/TP.jpg?height=200&width=300',
+            category: 'game',
+            tags: ['Java'],
+            codeLink: 'https://github.com/Javiergrandealo/ExtraordinariaTP'
         }
+    ];
     
-        // Cargar todos los proyectos al inicio
-        loadProjects();
+    // Función para cargar proyectos
+    function loadProjects(category = 'all') {
+        // Limpiar el grid de proyectos
+        projectsGrid.innerHTML = '';
+        
+        // Filtrar proyectos según la categoría seleccionada
+        const filteredProjects = category === 'all' 
+            ? projects 
+            : projects.filter(project => project.category === category);
+        
+        // Crear y añadir las tarjetas de proyectos
+        filteredProjects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            
+            projectCard.innerHTML = `
+                <div class="project-img">
+                    <img src="${project.image}" alt="${project.title}">
+                </div>
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        <a href="${project.demoLink}" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="${project.codeLink}" class="project-link"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            `;
+            
+            projectsGrid.appendChild(projectCard);
+        });
+    }
     
-        // Añadir event listeners a los botones de filtro
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Quitar la clase active de todos los botones
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                
-                // Añadir la clase active al botón clickeado
-                this.classList.add('active');
-                
-                // Obtener la categoría del botón
-                const category = this.getAttribute('data-filter');
-                
-                // Cargar los proyectos filtrados
-                loadProjects(category);
-            });
+    // Cargar todos los proyectos al inicio
+    loadProjects();
+    
+    // Añadir event listeners a los botones de filtro
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Quitar la clase active de todos los botones
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // Añadir la clase active al botón clickeado
+            this.classList.add('active');
+            
+            // Obtener la categoría del botón
+            const category = this.getAttribute('data-filter');
+            
+            // Cargar los proyectos filtrados
+            loadProjects(category);
         });
     });
+    
     // Formulario de contacto
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
