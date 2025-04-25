@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 1,
             title: 'Undertale Save Converter for PC/Switch/Vita',
             description: 'Una herramienta para convertir partidas guardadas de Undertale entre PC, Switch y PSVita .',
-            image: 'Docs/UT.jpg ?height=200&width=300',
+            image: 'Docs/UT.png ?height=200&width=300',
             category: 'game',
             tags: ['Python'],
             codeLink: 'https://github.com/Javiergrandealo/undertale-save-converter'
