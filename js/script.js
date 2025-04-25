@@ -58,67 +58,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectsGrid = document.getElementById('projects-grid');
     
-    // Datos de proyectos (simulados)
+    // Datos de proyectos
     const projects = [
         {
             id: 1,
-            title: 'Aplicación Web de Gestión',
-            description: 'Una aplicación web para gestionar tareas y proyectos con múltiples usuarios.',
-            image: '/placeholder.svg?height=200&width=300',
-            category: 'web',
-            tags: ['HTML', 'CSS', 'JavaScript', 'React'],
-            demoLink: '#',
-            codeLink: '#'
+            title: 'Undertale Save Converter for PC/Switch/Vita',
+            description: 'Una herramienta para convertir partidas guardadas de Undertale entre PC, Switch y PSVita .',
+            image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.playstation.com%2Fes-es%2Fgames%2Fundertale%2F&psig=AOvVaw14zfiaNlObjPYmsCamj1mN&ust=1745673703572000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiWr7mj84wDFQAAAAAdAAAAABAE ?height=200&width=300',
+            category: 'game',
+            tags: ['Python'],
+            codeLink: 'https://github.com/Javiergrandealo/undertale-save-converter'
         },
         {
             id: 2,
-            title: 'Juego de Plataformas',
-            description: 'Un juego de plataformas 2D desarrollado con JavaScript y Canvas.',
-            image: '/placeholder.svg?height=200&width=300',
+            title: 'Extraordinaria TP',
+            description: 'Un juego de rol en terminal, hecho en Java como proyecto de primero de carrera.',
+            image: 'https://github.com/laracabrera/proyecto-tp-2324-extr/blob/main/doc/_e0bb06e0-c99d-4eb9-91a1-b0f2dade0193.jpg?height=200&width=300',
             category: 'game',
-            tags: ['JavaScript', 'Canvas', 'Game Development'],
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 3,
-            title: 'App Móvil de Música',
-            description: 'Una aplicación móvil para descubrir y reproducir música con recomendaciones personalizadas.',
-            image: '/placeholder.svg?height=200&width=300',
-            category: 'app',
-            tags: ['React Native', 'JavaScript', 'API Integration'],
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 4,
-            title: 'Portfolio Personal',
-            description: 'Sitio web personal responsive para mostrar proyectos y habilidades.',
-            image: '/placeholder.svg?height=200&width=300',
-            category: 'web',
-            tags: ['HTML', 'CSS', 'JavaScript'],
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 5,
-            title: 'Juego de Memoria',
-            description: 'Un juego de memoria interactivo con diferentes niveles de dificultad.',
-            image: '/placeholder.svg?height=200&width=300',
-            category: 'game',
-            tags: ['JavaScript', 'HTML5', 'CSS3'],
-            demoLink: '#',
-            codeLink: '#'
-        },
-        {
-            id: 6,
-            title: 'API RESTful',
-            description: 'Una API RESTful para gestionar datos de usuarios y productos.',
-            image: '/placeholder.svg?height=200&width=300',
-            category: 'web',
-            tags: ['Node.js', 'Express', 'MongoDB'],
-            demoLink: '#',
-            codeLink: '#'
+            tags: ['Java'],
+            codeLink: 'https://github.com/Javiergrandealo/ExtraordinariaTP'
         }
     ];
     
