@@ -1,16 +1,215 @@
-// script.js
+// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('nav a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
-
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
+    // Menú de navegación responsive
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        
+        // Animar las barras del menú hamburguesa
+        const bars = document.querySelectorAll('.bar');
+        bars.forEach(bar => bar.classList.toggle('active'));
+    });
+    
+    // Cerrar el menú al hacer clic en un enlace
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            navLinks.classList.remove('active');
         });
     });
+    
+    // Cambiar el estilo del navbar al hacer scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.style.padding = '15px 5%';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.padding = '20px 5%';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+        }
+    });
+    
+    // Animación de las barras de habilidades
+    const skillLevels = document.querySelectorAll('.skill-level');
+    
+    // Función para animar las barras de habilidades cuando están en el viewport
+    function animateSkills() {
+        const skillsSection = document.querySelector('.skills');
+        if (!skillsSection) return;
+        
+        const sectionPosition = skillsSection.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (sectionPosition < screenPosition) {
+            skillLevels.forEach(skill => {
+                skill.style.width = skill.style.width || skill.getAttribute('style').split('width:')[1].split(';')[0];
+            });
+        }
+    }
+    
+    // Llamar a la función al cargar la página y al hacer scroll
+    window.addEventListener('scroll', animateSkills);
+    animateSkills();
+    
+    // Filtro de proyectos
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectsGrid = document.getElementById('projects-grid');
+    
+    // Datos de proyectos (simulados)
+    const projects = [
+        {
+            id: 1,
+            title: 'Aplicación Web de Gestión',
+            description: 'Una aplicación web para gestionar tareas y proyectos con múltiples usuarios.',
+            image: '/placeholder.svg?height=200&width=300',
+            category: 'web',
+            tags: ['HTML', 'CSS', 'JavaScript', 'React'],
+            demoLink: '#',
+            codeLink: '#'
+        },
+        {
+            id: 2,
+            title: 'Juego de Plataformas',
+            description: 'Un juego de plataformas 2D desarrollado con JavaScript y Canvas.',
+            image: '/placeholder.svg?height=200&width=300',
+            category: 'game',
+            tags: ['JavaScript', 'Canvas', 'Game Development'],
+            demoLink: '#',
+            codeLink: '#'
+        },
+        {
+            id: 3,
+            title: 'App Móvil de Música',
+            description: 'Una aplicación móvil para descubrir y reproducir música con recomendaciones personalizadas.',
+            image: '/placeholder.svg?height=200&width=300',
+            category: 'app',
+            tags: ['React Native', 'JavaScript', 'API Integration'],
+            demoLink: '#',
+            codeLink: '#'
+        },
+        {
+            id: 4,
+            title: 'Portfolio Personal',
+            description: 'Sitio web personal responsive para mostrar proyectos y habilidades.',
+            image: '/placeholder.svg?height=200&width=300',
+            category: 'web',
+            tags: ['HTML', 'CSS', 'JavaScript'],
+            demoLink: '#',
+            codeLink: '#'
+        },
+        {
+            id: 5,
+            title: 'Juego de Memoria',
+            description: 'Un juego de memoria interactivo con diferentes niveles de dificultad.',
+            image: '/placeholder.svg?height=200&width=300',
+            category: 'game',
+            tags: ['JavaScript', 'HTML5', 'CSS3'],
+            demoLink: '#',
+            codeLink: '#'
+        },
+        {
+            id: 6,
+            title: 'API RESTful',
+            description: 'Una API RESTful para gestionar datos de usuarios y productos.',
+            image: '/placeholder.svg?height=200&width=300',
+            category: 'web',
+            tags: ['Node.js', 'Express', 'MongoDB'],
+            demoLink: '#',
+            codeLink: '#'
+        }
+    ];
+    
+    // Función para cargar proyectos
+    function loadProjects(category = 'all') {
+        // Limpiar el grid de proyectos
+        projectsGrid.innerHTML = '';
+        
+        // Filtrar proyectos según la categoría seleccionada
+        const filteredProjects = category === 'all' 
+            ? projects 
+            : projects.filter(project => project.category === category);
+        
+        // Crear y añadir las tarjetas de proyectos
+        filteredProjects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card';
+            
+            projectCard.innerHTML = `
+                <div class="project-img">
+                    <img src="${project.image}" alt="${project.title}">
+                </div>
+                <div class="project-info">
+                    <h3>${project.title}</h3>
+                    <p>${project.description}</p>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+                    </div>
+                    <div class="project-links">
+                        <a href="${project.demoLink}" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        <a href="${project.codeLink}" class="project-link"><i class="fab fa-github"></i> Código</a>
+                    </div>
+                </div>
+            `;
+            
+            projectsGrid.appendChild(projectCard);
+        });
+    }
+    
+    // Cargar todos los proyectos al inicio
+    loadProjects();
+    
+    // Añadir event listeners a los botones de filtro
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Quitar la clase active de todos los botones
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            
+            // Añadir la clase active al botón clickeado
+            this.classList.add('active');
+            
+            // Obtener la categoría del botón
+            const category = this.getAttribute('data-filter');
+            
+            // Cargar los proyectos filtrados
+            loadProjects(category);
+        });
+    });
+    
+    // Formulario de contacto
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulación de envío de formulario
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Validación básica
+            if (name && email && subject && message) {
+                // Simulación de éxito (en un caso real, aquí iría el código para enviar el formulario)
+                formMessage.innerHTML = '¡Mensaje enviado con éxito! Te responderé lo antes posible.';
+                formMessage.className = 'success';
+                
+                // Resetear el formulario
+                contactForm.reset();
+                
+                // Ocultar el mensaje después de 5 segundos
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            } else {
+                // Mensaje de error
+                formMessage.innerHTML = 'Por favor, completa todos los campos.';
+                formMessage.className = 'error';
+            }
+        });
+    }
 });
