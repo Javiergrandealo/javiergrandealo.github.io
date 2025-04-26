@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        <a href="${project.codeLink}" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        <a href="${project.codeLink}" class="project-link" target="_blank"><i class="fab fa-github"></i> Código</a>
                     </div>
                 </div>
             `;
@@ -151,7 +151,13 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Validación básica
             if (name && email && subject && message) {
-                // Simulación de éxito (en un caso real, aquí iría el código para enviar el formulario)
+                const formData = {
+                    name: name,
+                    email: email,
+                    subject: subject,
+                    message: message
+                };
+
                 formMessage.innerHTML = '¡Mensaje enviado con éxito! Te responderé lo antes posible.';
                 formMessage.className = 'success';
                 
