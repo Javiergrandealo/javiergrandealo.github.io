@@ -134,45 +134,4 @@ document.addEventListener('DOMContentLoaded', function() {
             loadProjects(category);
         });
     });
-    
-    // Formulario de contacto
-    const contactForm = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulación de envío de formulario
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Validación básica
-            if (name && email && subject && message) {
-                const formData = {
-                    name: name,
-                    email: email,
-                    subject: subject,
-                    message: message
-                };
-
-                formMessage.innerHTML = '¡Mensaje enviado con éxito! Te responderé lo antes posible.';
-                formMessage.className = 'success';
-                
-                // Resetear el formulario
-                contactForm.reset();
-                
-                // Ocultar el mensaje después de 5 segundos
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            } else {
-                // Mensaje de error
-                formMessage.innerHTML = 'Por favor, completa todos los campos.';
-                formMessage.className = 'error';
-            }
-        });
-    }
 });
