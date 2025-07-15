@@ -86,6 +86,15 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'desktop',
             tags: ['Java'],
             codeLink: 'https://github.com/Javiergrandealo/todolist-JavaFX'
+        },
+        {
+            id: 4,
+            title: 'Sripts LogicPro y Final Cut Pro',
+            description: 'Script simple pero eficaz para resetear la cuenta de dias restantes del periodo de prueba de LogicPro y Final Cut Pro.',
+            image: 'Docs/logic.webp?height=200&width=300',
+            category: 'scripts',
+            tags: ['Bash'],
+            codeLink: 'https://github.com/Javiergrandealo/Final-Cut-Pro-Logic-Pro-trial-Script'
         }
     ];
     
