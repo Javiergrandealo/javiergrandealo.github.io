@@ -77,6 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'game',
             tags: ['Java'],
             codeLink: 'https://github.com/Javiergrandealo/ExtraordinariaTP'
+        },
+        {
+            id: 3,
+            title: 'Todo-List App in Java FX',
+            description: 'Una aplicación de lista de tareas hecha en Java FX, con funcionalidades básicas CRUD, encriptación de datos y guardado',
+            image: 'Docs/todo.png?height=200&width=300',
+            category: 'desktop',
+            tags: ['Java'],
+            codeLink: 'https://github.com/Javiergrandealo/todolist-JavaFX'
         }
     ];
     
