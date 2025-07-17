@@ -63,9 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             id: 1,
             title: 'Undertale Save Converter for PC/Switch/Vita',
-            description: 'Una herramienta para convertir partidas guardadas de Undertale entre PC, Switch y PSVita .',
+            description: 'Una herramienta para convertir partidas guardadas de Undertale entre PC, Switch y PSVita.',
             image: 'Docs/590f06b45bafe37b970cbcbc.webp?height=200&width=300',
-            category: 'game',
+            category: 'game, scripts',
             tags: ['Python'],
             codeLink: 'https://github.com/Javiergrandealo/undertale-save-converter'
         },
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Filtrar proyectos según la categoría seleccionada
         const filteredProjects = category === 'all' 
             ? projects 
-            : projects.filter(project => project.category === category);
+            : projects.filter(project => project.category.includes(category));
         
         // Crear y añadir las tarjetas de proyectos
         filteredProjects.forEach(project => {
