@@ -1,4 +1,3 @@
-// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     // Menú de navegación responsive
     const menuToggle = document.getElementById('menu-toggle');
@@ -57,8 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Filtro de proyectos
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectsGrid = document.getElementById('projects-grid');
-    
-    // Datos de proyectos
+
     const projects = [
         {
             id: 1,
@@ -107,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
     
-    // Función para cargar proyectos
     function loadProjects(category = 'all') {
         // Limpiar el grid de proyectos
         projectsGrid.innerHTML = '';
@@ -117,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
             ? projects 
             : projects.filter(project => project.category.includes(category));
         
-        // Crear y añadir las tarjetas de proyectos
         filteredProjects.forEach(project => {
             const projectCard = document.createElement('div');
             projectCard.className = 'project-card';
@@ -147,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Cargar todos los proyectos al inicio
     loadProjects();
     
     // Añadir event listeners a los botones de filtro
