@@ -458,6 +458,14 @@ header {
     margin-right: 5px;
 }
 
+.project-link-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    display: block;
+    border-radius: 3px;
+}
+
 /* Contact Section */
 .contact {
     background-color: white;
@@ -521,6 +529,13 @@ header {
     background-color: var(--primary-color);
     color: white;
     transform: translateY(-5px);
+}
+
+.social-link-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+    border-radius: 4px;
 }
 
 .form-group {

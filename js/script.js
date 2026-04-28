@@ -95,6 +95,15 @@ document.addEventListener('DOMContentLoaded', function() {
             category: 'scripts',
             tags: ['Bash'],
             codeLink: 'https://github.com/Javiergrandealo/Final-Cut-Pro-Logic-Pro-trial-Script'
+        },
+        {
+            id: 5,
+            title: 'PUNTOCERO',
+            description: 'Grupo de musica en el que formo parte. Bajista a tiempo parcial, guapo a tiempo completo.',
+            image: 'Docs/3bde91ba-384b-4754-8fc9-55517ba43d7e_126920c08a3946d95409d1e4bf6ddac1-tplv-tiktokx-cropcenter-1080-1080.jpeg.webp?height=200&width=300',
+            category: 'music',
+            tags: [],
+            codeLink: 'https://linktr.ee/puntocero0?utm_source=linktree_profile_share&ltsid=4a7a8f1e-bdaf-4b3f-bbd4-e87d6673a057'
         }
     ];
     
@@ -112,6 +121,11 @@ document.addEventListener('DOMContentLoaded', function() {
         filteredProjects.forEach(project => {
             const projectCard = document.createElement('div');
             projectCard.className = 'project-card';
+            const isMusicProject = project.category.includes('music');
+            const linkIcon = isMusicProject
+                ? '<img src="https://linktr.ee/favicon.ico" alt="" class="project-link-icon" loading="lazy">'
+                : '<img src="https://github.com/favicon.ico" alt="" class="project-link-icon" loading="lazy">';
+            const linkText = isMusicProject ? 'Linktree' : 'Código';
             
             projectCard.innerHTML = `
                 <div class="project-img">
@@ -124,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                     </div>
                     <div class="project-links">
-                        <a href="${project.codeLink}" class="project-link" target="_blank"><i class="fab fa-github"></i> Código</a>
+                        <a href="${project.codeLink}" class="project-link" target="_blank">${linkIcon} ${linkText}</a>
                     </div>
                 </div>
             `;
